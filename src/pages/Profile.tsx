@@ -95,6 +95,14 @@ export const Profile = () => {
                 <span>Sign out</span>
               </button>
             </div>
+            
+            {/* Advertisement */}
+            <div className="mb-8 mx-auto flex justify-center">
+              <div id="frame" style={{width:'728px', height:'auto'}}>
+                <iframe data-aa='2393200' src='//ad.a-ads.com/2393200?size=728x90' style={{width:'728px', height:'90px', border:'0px', padding:0, overflow:'hidden', backgroundColor: 'transparent'}}></iframe>
+                <a style={{display: 'block', textAlign: 'right', fontSize: '12px'}} id="preview-link" href="https://aads.com/campaigns/new/?source_id=2393200&source_type=ad_unit&partner=2393200">Advertise here</a>
+              </div>
+            </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="flex flex-col items-center gap-4">

@@ -56,6 +56,14 @@ export const History = () => {
           <HistoryIcon className="w-6 h-6 text-primary-500" />
           <h1 className="text-2xl font-bold text-white">Watch History</h1>
         </div>
+        
+        {/* Advertisement */}
+        <div className="mb-8 mx-auto flex justify-center">
+          <div id="frame" style={{width:'728px', height:'auto'}}>
+            <iframe data-aa='2393200' src='//ad.a-ads.com/2393200?size=728x90' style={{width:'728px', height:'90px', border:'0px', padding:0, overflow:'hidden', backgroundColor: 'transparent'}}></iframe>
+            <a style={{display: 'block', textAlign: 'right', fontSize: '12px'}} id="preview-link" href="https://aads.com/campaigns/new/?source_id=2393200&source_type=ad_unit&partner=2393200">Advertise here</a>
+          </div>
+        </div>
 
         {!history || history.length === 0 ? (
           <div className="text-center py-12 bg-white/[0.03] rounded-2xl">
