@@ -5,6 +5,7 @@ import { getTopRated } from '../services/tmdb';
 import MovieCard from '../components/MovieCard';
 import { SEO } from '../components/SEO';
 import { cn } from '../utils/cn';
+import { Advertisement } from '../components/Advertisement';
 
 export const TopRated = () => {
   const [activeTab, setActiveTab] = React.useState<'movie' | 'tv'>('movie');
@@ -53,11 +54,8 @@ export const TopRated = () => {
         </div>
 
         {/* Advertisement */}
-        <div className="mb-8 mx-auto flex justify-center">
-          <div id="frame" style={{width:'728px', height:'auto'}}>
-            <iframe data-aa='2393200' src='//ad.a-ads.com/2393200?size=728x90' style={{width:'728px', height:'90px', border:'0px', padding:0, overflow:'hidden', backgroundColor: 'transparent'}}></iframe>
-            <a style={{display: 'block', textAlign: 'right', fontSize: '12px'}} id="preview-link" href="https://aads.com/campaigns/new/?source_id=2393200&source_type=ad_unit&partner=2393200">Advertise here</a>
-          </div>
+        <div className="mb-8">
+          <Advertisement />
         </div>
 
         {isLoading ? (
@@ -72,7 +70,7 @@ export const TopRated = () => {
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-            {topRatedItems?.map((item) => (
+            {topRatedItems?.map((item: any) => (
               <MovieCard key={item.id} item={item} mediaType={activeTab} />
             ))}
           </div>

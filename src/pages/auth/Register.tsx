@@ -4,6 +4,7 @@ import { UserPlus, Mail, Lock, AlertCircle } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { SEO } from '../../components/SEO';
 import toast from 'react-hot-toast';
+import { Advertisement } from '../../components/Advertisement';
 
 export const Register = () => {
   const [email, setEmail] = useState('');
@@ -51,11 +52,8 @@ export const Register = () => {
           </div>
           
           {/* Advertisement */}
-          <div className="mb-8 mx-auto flex justify-center">
-            <div id="frame" style={{width:'728px', height:'auto'}}>
-              <iframe data-aa='2393200' src='//ad.a-ads.com/2393200?size=728x90' style={{width:'728px', height:'90px', border:'0px', padding:0, overflow:'hidden', backgroundColor: 'transparent'}}></iframe>
-              <a style={{display: 'block', textAlign: 'right', fontSize: '12px'}} id="preview-link" href="https://aads.com/campaigns/new/?source_id=2393200&source_type=ad_unit&partner=2393200">Advertise here</a>
-            </div>
+          <div className="mb-8">
+            <Advertisement />
           </div>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-6">

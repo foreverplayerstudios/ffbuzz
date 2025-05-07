@@ -13,6 +13,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
 import { GenreBadge } from '../components/GenreBadge';
 import { createSEOProps, formatMovieTitle } from '../utils/seo-helper';
+import { Advertisement } from '../components/Advertisement';
 
 export const Watch = () => {
   const { mediaType = 'movie', id } = useParams<{ mediaType: 'movie' | 'tv'; id: string }>();
@@ -130,9 +131,9 @@ export const Watch = () => {
     publishedAt: releaseDate,
     rating: details.vote_average,
     duration: runtime,
-    genres: details.genres?.map(g => g.name),
-    actors: details.credits?.cast?.slice(0, 5).map(actor => actor.name),
-    director: details.credits?.crew?.find(person => person.job === 'Director')?.name
+    genres: details.genres?.map((g: any) => g.name),
+    actors: details.credits?.cast?.slice(0, 5).map((actor: any) => actor.name),
+    director: details.credits?.crew?.find((person: any) => person.job === 'Director')?.name
   });
 
   return (
@@ -206,7 +207,7 @@ export const Watch = () => {
 
                 {details.genres && (
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {details.genres.map((genre) => (
+                    {details.genres.map((genre: any) => (
                       <GenreBadge
                         key={genre.id}
                         id={genre.id}
@@ -235,11 +236,8 @@ export const Watch = () => {
                 </div>
                 
                 {/* Advertisement */}
-                <div className="mb-8 mx-auto flex justify-center">
-                  <div id="frame" style={{width:'728px', height:'auto'}}>
-                    <iframe data-aa='2393200' src='//ad.a-ads.com/2393200?size=728x90' style={{width:'728px', height:'90px', border:'0px', padding:0, overflow:'hidden', backgroundColor: 'transparent'}}></iframe>
-                    <a style={{display: 'block', textAlign: 'right', fontSize: '12px'}} id="preview-link" href="https://aads.com/campaigns/new/?source_id=2393200&source_type=ad_unit&partner=2393200">Advertise here</a>
-                  </div>
+                <div className="mb-8">
+                  <Advertisement />
                 </div>
 
                 {mediaType === 'tv' && details.seasons && (
@@ -259,7 +257,7 @@ export const Watch = () => {
                         </button>
                         {showSeasons && (
                           <div className="absolute top-full right-0 mt-2 w-48 bg-[#1a1a1a] rounded-lg shadow-xl border border-white/[0.05] py-1 z-50">
-                            {details.seasons.map((season) => (
+                            {details.seasons.map((season: any) => (
                               <button
                                 key={season.season_number}
                                 onClick={() => handleEpisodeSelect(season.season_number, 1)}
@@ -281,7 +279,7 @@ export const Watch = () => {
                       </div>
                     </div>
                     <div className="grid gap-4">
-                      {seasonDetails?.episodes.map((episode) => (
+                      {seasonDetails?.episodes.map((episode: any) => (
                         <button
                           key={episode.episode_number}
                           onClick={() => handleEpisodeSelect(selectedSeason, episode.episode_number)}
@@ -337,7 +335,7 @@ export const Watch = () => {
                   <div>
                     <h2 className="text-2xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-primary-200 to-white">You May Also Like</h2>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                      {recommendations.slice(0, 8).map((item) => (
+                      {recommendations.slice(0, 8).map((item: any) => (
                         <MovieCard
                           key={item.id}
                           item={item}
